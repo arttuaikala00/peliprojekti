@@ -4,6 +4,20 @@
     --hiili: #101010;
     --sora: #808080;
     --hiekka: #964B00;
+    --color-background: xxxxx;
+    --color-primary: xxxxx;
+    --color-primary-hover: xxxxxx;
+
+    --color-text: xxxxx;
+    --color-heading: xxxxx;
+
+    --color-secondary: xxxx;
+    --color-border: xxxx;
+
+    --font-main: xxxx;
+
+    --border-radius: xxxx;
+
 }
 
 * {
