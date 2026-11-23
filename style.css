@@ -1,0 +1,60 @@
+:root {
+
+    --kulta: #ffd700;
+    --hiili: #101010;
+    --sora: #808080;
+    --hiekka: #964B00;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.peli-nakyma {
+
+}
+
+.pelaaja-puoli {
+
+}
+
+.pakka {
+
+}
+
+.kortti {
+    /* VÄLIAIKANEN */
+    border: 1px solid black;
+    height: 20px;
+    width: 20px;
+}
+
+.kulta-kortti {
+    background-color: var(--kulta);
+}
+
+.hiili-kortti {
+    background-color: var(--hiili);
+}
+
+.sora-kortti {
+    background-color: var(--sora);
+}
+
+.hiekka-kortti {
+    background-color: var(--hiekka);
+}
+
+.toiminnot {
+
+}
+
+.kasi {
+
+}
+
+.napit {
+    
+}
