@@ -1,23 +1,10 @@
 :root {
+    --paavari: #00008b;
 
     --kulta: #ffd700;
     --hiili: #101010;
     --sora: #808080;
     --hiekka: #964B00;
-    --color-background: xxxxx;
-    --color-primary: xxxxx;
-    --color-primary-hover: xxxxxx;
-
-    --color-text: xxxxx;
-    --color-heading: xxxxx;
-
-    --color-secondary: xxxx;
-    --color-border: xxxx;
-
-    --font-main: xxxx;
-
-    --border-radius: xxxx;
-
 }
 
 * {
@@ -26,23 +13,42 @@
     border: 0;
 }
 
-.peli-nakyma {
+body {
+    background-color: var(--paavari);
+}
 
+div {
+    min-width: 10px;
+    min-height: 10px;
+    border: 1px solid black;
+}
+
+#nakyma {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.peli-nakyma {
+    display: flex;
+    width: 100%;
+    gap: 2.5%;
 }
 
 .pelaaja-puoli {
-
+    display: flex;
+    flex: 1;
 }
 
 .pakka {
-
+    display: flex;
+    gap: .05%;
 }
 
 .kortti {
-    /* VÄLIAIKANEN */
     border: 1px solid black;
-    height: 20px;
-    width: 20px;
+    height: 60px;
+    width: 60px;
 }
 
 .kulta-kortti {
@@ -59,16 +65,4 @@
 
 .hiekka-kortti {
     background-color: var(--hiekka);
-}
-
-.toiminnot {
-
-}
-
-.kasi {
-
-}
-
-.napit {
-    
 }

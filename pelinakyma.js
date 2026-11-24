@@ -11,13 +11,7 @@ export function aloitaNakyma() {
                 </div>
                 
                 <div class="toiminnot">
-                    <div class="kasi">
-
-                    </div>
-
-                    <div class="napit">
-
-                    </div>
+                    
                 </div>
             </div>
 
@@ -27,27 +21,23 @@ export function aloitaNakyma() {
                 </div>
                 
                 <div class="toiminnot">
-                    <div class="kasi">
-
-                    </div>
-
-                    <div class="napit">
-
-                    </div>
+                    
                 </div>
             </div>
         </div>
     `;
 
-    tulostaPakka(1);
-    tulostaPakka(2);
+    tulostaPakka(true);
+    tulostaPakka(false);
+
+    vuoroNakyma(true);
 }
 
 function tulostaPakka(pelaaja) {
-    let pelaajaPakka;
-    let pakka;
+    var pelaajaPakka;
+    var pakka;
 
-    if (pelaaja == 1) {
+    if (pelaaja) {
         pelaajaPakka = pelimekaniikat.pelaaja1Pakka;
         pakka = document.querySelector("#pelaaja1 .pakka")
     } else {
@@ -73,4 +63,39 @@ function tulostaPakka(pelaaja) {
                 break;
         }
     });
+}
+
+function vuoroNakyma(pelaaja) {
+    const pelaaja1Toiminnot = document.querySelector("#pelaaja1 .toiminnot");
+    const pelaaja2Toiminnot = document.querySelector("#pelaaja2 .toiminnot");
+
+    const omaVuoro = `
+        <div class="toiminnot">
+            <div class="kasi">
+                
+            </div>
+
+            <div class="napit">
+                <button id="nosta-nappi">Nosta</button>
+                <button id="jaa-nappi">Jää</button>
+            </div>
+        </div>
+    `;
+
+    if (pelaaja) {
+        var pelaajaVuoro = "1";
+    } else {
+        var pelaajaVuoro = "2";
+    }
+    const toisenVuoro = `
+        <h4>Pelaaja ${pelaajaVuoro} vuoro.</h4>
+    `;
+
+    if (pelaaja) {
+        pelaaja1Toiminnot.innerHTML = omaVuoro;
+        pelaaja2Toiminnot.innerHTML = toisenVuoro
+    } else {
+        pelaaja1Toiminnot.innerHTML = toisenVuoro;
+        pelaaja2Toiminnot.innerHTML = omaVuoro;
+    }
 }
