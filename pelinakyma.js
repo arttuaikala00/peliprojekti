@@ -29,7 +29,6 @@ export function aloitaNakyma() {
 
     tulostaPakka(true);
     tulostaPakka(false);
-
     vuoroNakyma(true);
 }
 
@@ -70,15 +69,13 @@ function vuoroNakyma(pelaaja) {
     const pelaaja2Toiminnot = document.querySelector("#pelaaja2 .toiminnot");
 
     const omaVuoro = `
-        <div class="toiminnot">
-            <div class="kasi">
-                
-            </div>
+        <div class="kasi">
+            
+        </div>
 
-            <div class="napit">
-                <button id="nosta-nappi">Nosta</button>
-                <button id="jaa-nappi">Jää</button>
-            </div>
+        <div class="napit">
+            <button id="nosta-nappi">Nosta</button>
+            <button id="jaa-nappi">Jää</button>
         </div>
     `;
 
