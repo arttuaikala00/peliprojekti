@@ -49,6 +49,16 @@ div {
     gap: .05%;
 }
 
+.kasi {
+    display: flex;
+    gap: .05%;
+}
+
+.pankki {
+    display: flex;
+    gap: .05%;
+}
+
 .kortti {
     border: 1px solid black;
     height: 60px;

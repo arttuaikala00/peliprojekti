@@ -6,23 +6,19 @@ export function aloitaNakyma() {
     nakyma.innerHTML = `
         <div class="peli-nakyma">
             <div class="pelaaja-puoli" id="pelaaja1">
-                <div class="pakka">
+                <div class="pakka"></div>
 
-                </div>
+                <div class="pankki"></div>
                 
-                <div class="toiminnot">
-                    
-                </div>
+                <div class="toiminnot"></div>
             </div>
 
             <div class="pelaaja-puoli" id="pelaaja2">
-                <div class="pakka">
+                <div class="pakka"></div>
 
-                </div>
+                <div class="pankki"></div>
                 
-                <div class="toiminnot">
-                    
-                </div>
+                <div class="toiminnot"></div>
             </div>
         </div>
     `;
@@ -62,7 +58,6 @@ export function vuoroNakyma(pelaaja) {
 
     const omaVuoro = `
         <div class="toiminnot-nakyma"></div>
-        <div class="kullat"></div>
         <div class="kasi"></div>
 
         <div class="napit">
@@ -80,4 +75,39 @@ export function vuoroNakyma(pelaaja) {
     pelaaja2Toiminnot.innerHTML = pelaaja ? toisenVuoro : omaVuoro;
 
     pelimekaniikat.vuoroMekaniikat();
+}
+
+export function tulostaPankki(pelaaja) {
+    var pelaajaPankki = pelaaja ? pelimekaniikat.pelaaja1Pankki : pelimekaniikat.pelaaja2Pankki;
+    var pankki = pelaaja ? document.querySelector("#pelaaja1 .pankki") : document.querySelector("#pelaaja2 .pankki");
+
+    pankki.innerHTML = "";
+
+    pelaajaPankki.forEach(kulta => {
+        pankki.innerHTML += `<div class="kortti kulta-kortti"></div>`;
+    });
+}
+
+export function tulostaKasi() {
+    var pelaajaKasi = pelimekaniikat.kasi;
+    var kasi = document.querySelector(".kasi");
+
+    kasi.innerHTML = "";
+
+    pelaajaKasi.forEach(kortti => {
+        switch(kortti) {
+            case "kulta":
+                kasi.innerHTML += `<div class="kortti kulta-kortti">`;
+                break;
+            case "hiili":
+                kasi.innerHTML += `<div class="kortti hiili-kortti">`;
+                break;
+            case "sora":
+                kasi.innerHTML += `<div class="kortti sora-kortti">`;
+                break;
+            case "hiekka":
+                kasi.innerHTML += `<div class="kortti hiekka-kortti">`;
+                break;
+        }
+    });
 }

@@ -2,8 +2,9 @@ import * as pelinakyma from "./pelinakyma.js";
 
 export let pelaaja1Pakka;
 export let pelaaja2Pakka;
-export let pelaaja1Kullat = [];
-export let pelaaja2Kullat = [];
+export let pelaaja1Pankki = [];
+export let pelaaja2Pankki = [];
+export let kasi = [];
 
 export function aloitaMekaniikat() {
     const aloitusPakka = [
@@ -15,10 +16,6 @@ export function aloitaMekaniikat() {
 
     pelaaja1Pakka = [...aloitusPakka];
     pelaaja2Pakka = [...aloitusPakka];
-
-    /* DEBUG */
-    console.log("pelaaja 1 pakka: " + pelaaja1Pakka);
-    console.log("pelaaja 2 pakka: " + pelaaja2Pakka);
 }
 
 export function vuoroMekaniikat() {
@@ -26,7 +23,6 @@ export function vuoroMekaniikat() {
     const jaaNappi = document.getElementById("jaa-nappi");
     const huonotKortit = ["hiili", "sora", "hiekka"];
     var pelaaja = nostaNappi.closest(".pelaaja-puoli").id === "pelaaja1";
-    var kasi = [];
     var alkPerPakka = pelaaja ? [...pelaaja1Pakka] : [...pelaaja2Pakka];
 
     nostaNappi.addEventListener("click", () => {
@@ -43,40 +39,31 @@ export function vuoroMekaniikat() {
                 pelaaja2Pakka = [...alkPerPakka];
             }
 
-            /* DEBUG */
-            console.log("oma pakka: " + omaPakka);
-            console.log("alkuperänen pakka: " + alkPerPakka);
-
             pelinakyma.tulostaPakka(pelaaja);
+            pelinakyma.tulostaKasi();
             pelinakyma.vuoroNakyma(!pelaaja);
         } else  {
             /* Pelaaja nosti kullan tai ensimmäisen huonon kortin */
             kasi.push(nostettuKortti);
             omaPakka.splice(omaPakka.indexOf(nostettuKortti), 1);
 
+            pelinakyma.tulostaKasi();
             pelinakyma.tulostaPakka(pelaaja);
-
-            /* DEBUG */
-            console.log("käsi: " + kasi);
-            console.log("oma pakka: " + omaPakka);
         }
     })
 
     jaaNappi.addEventListener("click", () => {
-        var omatKullat = pelaaja ? pelaaja1Kullat : pelaaja2Kullat;
+        var omaPankki = pelaaja ? pelaaja1Pankki : pelaaja2Pankki;
         var kaverinPakka = pelaaja ? pelaaja2Pakka : pelaaja1Pakka;
 
         /* Lisää kullat omaan pankkiin ja huonot kaverin pakkaan */
-        omatKullat.push(...kasi.filter(kortti => kortti == "kulta"));
-        kaverinPakka.push(...kasi.filter(kortti => kortti != "kulta"));
+        omaPankki.push(...kasi.filter(kortti => kortti === "kulta"));
+        kaverinPakka.push(...kasi.filter(kortti => kortti !== "kulta"));
         kasi = [];
 
-        /* DEBUG */
-        console.log("omat kullat: " + omatKullat);
-        console.log("kaverin pakka: " + kaverinPakka);
-        console.log("käsi: " + kasi);
-
+        pelinakyma.tulostaKasi();
         pelinakyma.tulostaPakka(!pelaaja);
+        pelinakyma.tulostaPankki(pelaaja);
         pelinakyma.vuoroNakyma(!pelaaja);
     })
 }
