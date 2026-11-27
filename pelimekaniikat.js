@@ -37,17 +37,24 @@ export function vuoroMekaniikat() {
         if (huonotKortit.includes(nostettuKortti) && kasi.includes(nostettuKortti)) {
             /* Pelaaja nosti toisen huonon kortin */
             kasi = [];
-            omaPakka = alkPerPakka;
+            if (pelaaja) {
+                pelaaja1Pakka = [...alkPerPakka];
+            } else {
+                pelaaja2Pakka = [...alkPerPakka];
+            }
 
             /* DEBUG */
-            console.log("käsi: " + kasi);
             console.log("oma pakka: " + omaPakka);
+            console.log("alkuperänen pakka: " + alkPerPakka);
 
+            pelinakyma.tulostaPakka(pelaaja);
             pelinakyma.vuoroNakyma(!pelaaja);
         } else  {
             /* Pelaaja nosti kullan tai ensimmäisen huonon kortin */
             kasi.push(nostettuKortti);
             omaPakka.splice(omaPakka.indexOf(nostettuKortti), 1);
+
+            pelinakyma.tulostaPakka(pelaaja);
 
             /* DEBUG */
             console.log("käsi: " + kasi);
@@ -69,6 +76,7 @@ export function vuoroMekaniikat() {
         console.log("kaverin pakka: " + kaverinPakka);
         console.log("käsi: " + kasi);
 
+        pelinakyma.tulostaPakka(!pelaaja);
         pelinakyma.vuoroNakyma(!pelaaja);
     })
 }
