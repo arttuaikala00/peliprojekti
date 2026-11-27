@@ -30,7 +30,6 @@ export function aloitaNakyma() {
     tulostaPakka(true);
     tulostaPakka(false);
     vuoroNakyma(true);
-    pelimekaniikat.vuoroMekaniikat();
 }
 
 function tulostaPakka(pelaaja) {
@@ -71,10 +70,8 @@ function vuoroNakyma(pelaaja) {
 
     const omaVuoro = `
         <div class="toiminnot-nakyma"></div>
-
-        <div class="kasi">
-            
-        </div>
+        <div class="kullat"></div>
+        <div class="kasi"></div>
 
         <div class="napit">
             <button id="nosta-nappi">Nosta</button>
