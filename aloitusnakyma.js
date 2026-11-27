@@ -1,9 +1,6 @@
-import * as pelimekaniikat from "./pelimekaniikat.js";
-import * as pelinakyma from "./pelinakyma.js";
-
 const nakyma = document.getElementById("nakyma");
 
-function naytaAloitusNakyma() {
+export function naytaAloitusNakyma() {
     nakyma.innerHTML = `
         <section id="aloitusnakyma">
 
@@ -17,12 +14,4 @@ function naytaAloitusNakyma() {
 
     </section>
         `;
-
-     const aloitaNappi = document.getElementById("aloita-nappi");
-
-    aloitaNappi.addEventListener("click", () => {
-        pelimekaniikat.aloitaMekaniikat();
-        pelinakyma.aloitaNakyma();
-    });
 }
-naytaAloitusNakyma();
