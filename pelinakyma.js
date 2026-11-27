@@ -32,17 +32,9 @@ export function aloitaNakyma() {
     vuoroNakyma(true);
 }
 
-function tulostaPakka(pelaaja) {
-    var pelaajaPakka;
-    var pakka;
-
-    if (pelaaja) {
-        pelaajaPakka = pelimekaniikat.pelaaja1Pakka;
-        pakka = document.querySelector("#pelaaja1 .pakka")
-    } else {
-        pelaajaPakka = pelimekaniikat.pelaaja2Pakka;
-        pakka = document.querySelector("#pelaaja2 .pakka")
-    }
+export function tulostaPakka(pelaaja) {
+    var pelaajaPakka = pelaaja ? pelimekaniikat.pelaaja1Pakka : pelimekaniikat.pelaaja2Pakka;
+    var pakka = pelaaja ? document.querySelector("#pelaaja1 .pakka") : document.querySelector("#pelaaja2 .pakka");
 
     pakka.innerHTML = "";
 
@@ -64,7 +56,7 @@ function tulostaPakka(pelaaja) {
     });
 }
 
-function vuoroNakyma(pelaaja) {
+export function vuoroNakyma(pelaaja) {
     const pelaaja1Toiminnot = document.querySelector("#pelaaja1 .toiminnot");
     const pelaaja2Toiminnot = document.querySelector("#pelaaja2 .toiminnot");
 
@@ -79,20 +71,13 @@ function vuoroNakyma(pelaaja) {
         </div>
     `;
 
-    if (pelaaja) {
-        var pelaajaVuoro = "1";
-    } else {
-        var pelaajaVuoro = "2";
-    }
+    var pelaajaVuoro = pelaaja ? "1" : "2";
     const toisenVuoro = `
         <h4>Pelaaja ${pelaajaVuoro} vuoro.</h4>
     `;
 
-    if (pelaaja) {
-        pelaaja1Toiminnot.innerHTML = omaVuoro;
-        pelaaja2Toiminnot.innerHTML = toisenVuoro
-    } else {
-        pelaaja1Toiminnot.innerHTML = toisenVuoro;
-        pelaaja2Toiminnot.innerHTML = omaVuoro;
-    }
+    pelaaja1Toiminnot.innerHTML = pelaaja ? omaVuoro : toisenVuoro;
+    pelaaja2Toiminnot.innerHTML = pelaaja ? toisenVuoro : omaVuoro;
+
+    pelimekaniikat.vuoroMekaniikat();
 }
