@@ -1,6 +1,10 @@
 :root {
     --paavari: #00008b;
 
+    --otsikko-vari: #ffffff;
+
+    --nappi-vari1: #ffd700;
+
     --kulta: #ffd700;
     --hiili: #101010;
     --sora: #808080;
@@ -77,7 +81,7 @@ div {
 }
 
 #aloitusnakyma h1 {
-    color: white;
+    color: var(--otsikko-vari);
     font-family: Rye, sans-serif;
     font-weight: bold;
     font-size: 72px;
@@ -87,7 +91,7 @@ div {
 }
 
 #aloitusnakyma p {
-    color: white;
+    color: var(--otsikko-vari);
     font-family: Arvo, sans-serif;
     font-weight: bold;
     font-size: 20px;
@@ -99,11 +103,11 @@ div {
     width: 540px;
     height: 200px;
     margin-top: 65px;
-    background-color: gold;
+    background-color: var(--nappi-vari1);
     border-radius: 15px;
     font-size: 20px;
     font-family: Arvo, sans-serif;
-    color: #00008b;
+    color: var(--paavari);
     text-align: center;
     padding: 62px;
     cursor: pointer;
